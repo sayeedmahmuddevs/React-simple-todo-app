@@ -7,6 +7,7 @@ export default function TodoNew(props) {
         e.preventDefault()
         if(!addVal) return
         props.handleNewTodo(addVal)
+        onAddValue("")
 
     }
     const inputVAl = (e)=> { 
