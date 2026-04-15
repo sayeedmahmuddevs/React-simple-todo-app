@@ -9,12 +9,18 @@ export default function App() {
     const handleNewTodo = (newTodo)=>{
         onTask([...task, newTodo])
     }
+
+    const deleteTask = (indexToDelete)=>{
+        const updateTask = task.filter(( val ,index)=> index!== indexToDelete)
+
+        onTask(updateTask)
+    }
     
 
   return (
-    <div>
+    <div className="m-3">
         {task.map((arr, index) => (
-            <TotoList arr ={arr} index ={index}/>
+            <TotoList key={index} arr ={arr} index ={index} delete = {deleteTask}/>
         ))}
 
         <TodoNew handleNewTodo ={handleNewTodo} />

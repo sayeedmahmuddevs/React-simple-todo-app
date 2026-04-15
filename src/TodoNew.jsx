@@ -4,17 +4,20 @@ export default function TodoNew(props) {
     const [addVal, onAddValue] = useState('')
     const handleSubmit = (e)=>{
         e.preventDefault()
+        if(!addVal) return
         props.handleNewTodo(addVal)
-        e.target.value = ""
 
+    }
+    const inputVAl = (e)=> { 
+        onAddValue(e.target.value)
     }
 
   return (
     <div>
         <form onSubmit={handleSubmit} >
  
-            <input type="text" name="task" value ={addVal} onChange={(e)=> onAddValue(e.target.value)} />
-            <button>add task</button>
+            <input className="border mr-2" type="text" name="task" value ={addVal} onChange={inputVAl} />
+            <button className="bg-gray-200 p-1 rounded">add task</button>
 
         </form>
       
